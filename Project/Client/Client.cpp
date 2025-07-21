@@ -1,10 +1,7 @@
-﻿// Client.cpp : 애플리케이션에 대한 진입점을 정의합니다.
-//
-
-#include "framework.h"
+﻿#include "framework.h"
 #include "Client.h"
 
-#include <Engine/Test.h>
+#include <Engine/CEngine.h>
 
 #ifdef _DEBUG
 #pragma comment(lib, "Engine//Engine_d.lib") // 라이브러리 경로 구분 "//"으로 작성
@@ -21,14 +18,12 @@ LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                     _In_opt_ HINSTANCE hPrevInstance,
-                     _In_ LPWSTR    lpCmdLine,
-                     _In_ int       nCmdShow)
+    _In_opt_ HINSTANCE hPrevInstance,
+    _In_ LPWSTR    lpCmdLine,
+    _In_ int       nCmdShow)
 {
-    int value = Add(10, 20);
-
     MyRegisterClass(hInstance);
-    
+
     hInst = hInstance; // 인스턴스 핸들을 전역 변수에 저장합니다.
 
     // 커널 오브젝트 ( 운영체제가 관리하는 물체들 )
@@ -46,6 +41,13 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     ShowWindow(hWnd, true);
     UpdateWindow(hWnd);
+
+    // CEngine 객체 초기화
+    if (FAILED(CEngine::GetInst()->init(hWnd, { 1280, 768 })))
+    {
+        MessageBox(nullptr, L"엔진 초기화 실패", L"엔진 초기화 실패", MB_OK);
+        return 0;
+    }
 
     // 단축키 테이블
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
@@ -98,7 +100,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CLIENT));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_CLIENT);
+    wcex.lpszMenuName   = nullptr; //MAKEINTRESOURCEW(IDC_CLIENT);
     wcex.lpszClassName  = L"Test";
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
