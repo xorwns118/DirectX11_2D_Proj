@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Default">
       <UniqueIdentifier>{ec94f98e-38b8-405a-abd2-56f47e700a41}</UniqueIdentifier>
     </Filter>
@@ -17,6 +13,21 @@
     <Filter Include="03. Device">
       <UniqueIdentifier>{e1cdb3d8-9e6d-4c66-b294-9e93f45335ac}</UniqueIdentifier>
     </Filter>
+    <Filter Include="04.Manager">
+      <UniqueIdentifier>{01584d41-b82e-4da0-bea7-4d00948192c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HLSL">
+      <UniqueIdentifier>{43ff0903-2de1-4d9a-a915-f6173400b0d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Manager\01.PathMgr">
+      <UniqueIdentifier>{df3b2af5-69a9-452f-8c46-58855b2c0391}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Manager\02.TimeMgr">
+      <UniqueIdentifier>{3f807858-26fd-4ceb-80f5-a189b5125d39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Manager\03.KeyMgr">
+      <UniqueIdentifier>{3ce73594-ceef-4fa2-ba2a-10a07faa7857}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -25,28 +36,75 @@
     <ClInclude Include="pch.h">
       <Filter>Default</Filter>
     </ClInclude>
-    <ClInclude Include="CEngine.h">
+    <ClInclude Include="Engine.h">
       <Filter>02. Engine</Filter>
     </ClInclude>
     <ClInclude Include="global.h">
       <Filter>01. Head</Filter>
     </ClInclude>
-    <ClInclude Include="CDevice.h">
+    <ClInclude Include="Device.h">
       <Filter>03. Device</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleMath.h">
+      <Filter>01. Head</Filter>
+    </ClInclude>
+    <ClInclude Include="singleton.h">
+      <Filter>01. Head</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>01. Head</Filter>
+    </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>01. Head</Filter>
+    </ClInclude>
+    <ClInclude Include="Ptr.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyMgr.h">
+      <Filter>04.Manager\03.KeyMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="PathMgr.h">
+      <Filter>04.Manager\01.PathMgr</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeMgr.h">
+      <Filter>04.Manager\02.TimeMgr</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Default</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>Default</Filter>
     </ClCompile>
-    <ClCompile Include="CEngine.cpp">
+    <ClCompile Include="Engine.cpp">
       <Filter>02. Engine</Filter>
     </ClCompile>
-    <ClCompile Include="CDevice.cpp">
+    <ClCompile Include="Device.cpp">
       <Filter>03. Device</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="Temp.cpp" />
+    <ClCompile Include="KeyMgr.cpp">
+      <Filter>04.Manager\03.KeyMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="PathMgr.cpp">
+      <Filter>04.Manager\01.PathMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeMgr.cpp">
+      <Filter>04.Manager\02.TimeMgr</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SimpleMath.inl">
+      <Filter>01. Head</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="std2d.fx">
+      <Filter>HLSL</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>
